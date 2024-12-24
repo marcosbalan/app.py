@@ -83,5 +83,13 @@ if st.button("Calcular Prazo"):
     except ValueError:
         st.error("⚠️ Por favor, insira uma data válida no formato DD/MM/AAAA.")
 
-       
+       # Obter feriados do TJ-SP e adicionar à lista
+feriados_tjsp = obter_feriados_tjsp()
+
+if feriados_tjsp:  # Só executa se houver feriados
+    for f in feriados_tjsp:
+        feriados[f] = "Feriado Municipal TJ-SP"
+else:
+    st.warning("⚠️ Nenhum feriado foi encontrado ou capturado do TJ-SP.")
+
 
